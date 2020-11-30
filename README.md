@@ -43,22 +43,32 @@ Método responsável por instanciar a classe, o parametro 'type' é do tipo caracte
 ### push( element )
 Método para empilhar elementos na pilha, se a pilha tiver um tipo definido, será executado uma verificação de tipagem no parametro 'element' informado. Parâmetro 'element' é obrigatório.
 <br /><br />
+![](assets/stack-push.gif)
+<br /><br />
 
-### pop
+### pop()
 Método desempilha um elemento da pilha e retorna o mesmo.
 <br /><br />
+![](assets/stack-pop.gif)
+<br /><br />
 
-### getTop
+### getTop()
 Retorna o topo da pilha, sem desempilhar.
 <br /><br />
-
-### size
-Método informa a quantidade de elementos na pilha.
+![](assets/stack-gettop.gif)
 <br /><br />
 
-### isEmpty
+### size()
+Método informa a quantidade de elementos na pilha.
+<br /><br />
+![](assets/stack-size.gif)
+<br /><br />
+
+### isEmpty()
 Método retorna um boleano informando se a pilha está ou não vazia.
+<br /><br />
+![](assets/stack-isempty.gif)
 <br /><br />
 
 ## Extras
-Veja na pasta 'examples' alguns exemplos de fontes usando a classe 'Stack'.
+Veja na pasta ['examples'](https://github.com/gabrielhklok/tlpp-stack/tree/master/examples) alguns exemplos de fontes usando a classe 'Stack'.
