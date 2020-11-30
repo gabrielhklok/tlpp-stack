@@ -4,6 +4,7 @@ Classe de pilha. Desenvolvida na linguagem TL++ (Linguagem proprietária da TOTVS
 
 1. [Definição](#Definição)
 1. [Metodos](#Metodos)
+1. [Extras](#Extras)
 <br /><br />
 
 ## Definição
@@ -20,6 +21,7 @@ A classe 'Stack' foi desenvolvida com intuito de possibilitar a vida dos desenvo
 <br /><br />
 
 ### new( [type] )
+
 Método responsável por instanciar a classe, o parametro 'type' é do tipo caracter e opcional. Caso seja informado estaremos definindo um tipo para a pilha, que deve ser uma das opções abaixo:
 
 - "A" (Array)
@@ -30,6 +32,13 @@ Método responsável por instanciar a classe, o parametro 'type' é do tipo caracte
 - "N" (Numeric)
 - "O" (Object)
 <br /><br />
+
+### Exemplo genérico
+![](assets/stack-generic.gif)
+<br />
+
+### Exemplo tipagem forte
+![](assets/stack-tipagem-forte.gif)
 
 ### push( element )
 Método para empilhar elementos na pilha, se a pilha tiver um tipo definido, será executado uma verificação de tipagem no parametro 'element' informado. Parâmetro 'element' é obrigatório.
@@ -49,3 +58,7 @@ Método informa a quantidade de elementos na pilha.
 
 ### isEmpty
 Método retorna um boleano informando se a pilha está ou não vazia.
+<br /><br />
+
+## Extras
+Veja na pasta 'examples' alguns exemplos de fontes usando a classe 'Stack'.
