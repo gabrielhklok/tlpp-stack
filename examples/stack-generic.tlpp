@@ -1,0 +1,34 @@
+#include "protheus.ch"
+
+/*/{Protheus.doc} stackGeneric
+Codigo de exemplo do uso da pilha de forma genérica.
+
+@author Gabriel H. Klok
+@type user function
+@since 30/11/2020
+@version 1.0
+/*/
+user function stackGeneric()
+    local oStack as object
+
+    // Instanciando a classe 'Stack' sem informar o tipo da pilha
+    oStack := Stack():new()
+    
+    // Empilhando elementos de tipos diferentes
+    oStack:push(.t.)
+    oStack:push(100)
+    oStack:push("Gabriel")
+
+    // Mensagem para verificar o topo da pilha e seu tamanho.
+    msginfo("Topo: " + oStack:getTop() + " | Tamanho da pilha: " + alltrim(str( oStack:size() )), "Info")
+
+    /*
+        Cuidado ao concatenar e/ou usar a função 'getTop' e 'pop' em uma pilha genérica.
+        Elas vão retornar o dado que está na pilha, e podem ser de tipos diferentes.
+        No exemplo acima, caso não tivessemos realizado o ultimo empilhamento, e tentassemos
+        exibir a mensagem da linha 15, iria gerar um erro, pois não é possivel concater 
+        texto com um valor numérico sem antes realizar uma conversão.
+    */
+
+    freeobj(oStack)
+return 

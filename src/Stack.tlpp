@@ -35,11 +35,16 @@ com que a pilha aceite elementos de qualquer tipo.
 @param cType, character, Tipo dos elementos da pilha.
 /*/
 method new(cType as character) class Stack
+    local aTypes := {"A", "B", "C", "D", "L", "N", "O", "U"}
     default cType := "U"
 
     self:aStack := {}
     self:nSize := 0
-    self:cType := upper(cType)
+    if ascan(aTypes, upper(cType)) <> 0
+        self:cType := upper(cType)
+    else 
+        userexception("Argument #0 error, Expected ['A'|'B'|'C'|'D'|'L'|'N'|'O'|'U']->" + valtype(element) + ", function new.")
+    endif
 return
 
 

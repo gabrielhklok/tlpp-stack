@@ -1,0 +1,37 @@
+#include "protheus.ch"
+
+#define TYPE_ARRAY "A"
+#define TYPE_CODEBLOCK "B"
+#define TYPE_CHARACTER "C"
+#define TYPE_DATE "D"
+#define TYPE_LOGICAL "L"
+#define TYPE_NUMERIC "N"
+#define TYPE_OBJECT "O"
+
+/*/{Protheus.doc} stackTipagemForte
+Codigo de exemplo do uso da pilha com tipagem forte.
+
+@author Gabriel H. Klok
+@type user function
+@since 30/11/2020
+@version 1.0
+/*/
+user function stackTipagemForte()
+    local oStack as object
+    local cNome as character
+
+    // Instanciando a classe 'Stack' com elementos do tipo C (character)
+    oStack := Stack():new(TYPE_CHARACTER)
+
+    // Empilhando elementos. Neste momento caso tente empilhar um elemento de um tipo diferente, será gerado um errorlog
+    oStack:push("Gabriel")
+    oStack:push("Klok")
+
+    // Desempilhando um elemento e salvando na variável 'cNome'
+    cNome := oStack:pop()
+
+    // Mostrando uma mensagem na tela com o conteúdo da variável 'cNome' e o topo da pilha.
+    msginfo("cNome: " + cNome + " | Topo pilha: " + oStack:getTop())
+
+    freeobj(oStack)
+return 
