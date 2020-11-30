@@ -1,0 +1,128 @@
+#include "protheus.ch"
+
+/*/{Protheus.doc} Stack
+Classe de pilha, podendo ser genérica ou com tipagem forte.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+/*/
+class Stack
+    private data aStack as array
+    private data nSize as integer
+    private data cType as string
+
+    public method new(cType) constructor
+    public method push(element)
+    public method pop()
+    public method getTop()
+    public method size()
+    public method isEmpty()
+endclass
+
+
+/*/{Protheus.doc} new
+Metodo construtor da classe.
+Recebe o tipo da pilha por parametro, podendo ser vazio. Isso fará
+com que a pilha aceite elementos de qualquer tipo.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@param cType, character, Tipo dos elementos da pilha.
+/*/
+method new(cType as character) class Stack
+    default cType := "U"
+
+    self:aStack := {}
+    self:nSize := 0
+    self:cType := upper(cType)
+return
+
+
+/*/{Protheus.doc} push
+Metodo para empilhar um novo elemento na pilha.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@param element, self:cType, Novo elemento que será empilhado na pilha.
+/*/
+method push(element) class Stack
+    if self:cType == "U" .or. valtype(element) == self:cType
+        aadd(self:aStack, element)
+        self:nSize++
+    else 
+        userexception("Argument #0 error, Expected " + self:cType + "->" + valtype(element) + ", function push.")
+    endif
+return 
+
+
+/*/{Protheus.doc} pop
+Metodo para desempilhar o ultimo elemente da pilha.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@return element, self:cType, Elemento que estava no topo da pilha.
+/*/
+method pop() class Stack
+    local element 
+
+    if self:nSize > 0
+        element := self:aStack[self:nSize]
+        asize(self:aStack, self:nSize - 1)
+        self:nSize--
+    else
+        userexception("Stack is empty.")
+    endif
+return element
+
+
+/*/{Protheus.doc} getTop
+Retorna o elemente do topo da pilha, sem desempilhar.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@return element, self:cType, Retorna o elemento presente no topo da pilha.
+/*/
+method getTop() class Stack
+return self:aStack[self:nSize]
+
+
+/*/{Protheus.doc} size
+Metodo retorna o tamanho da pilha.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@return self:nSize, integer, Retorna o tamanho da pilha.
+/*/
+method size() class Stack
+return self:nSize
+
+
+/*/{Protheus.doc} isEmpty
+Metodo informa se a pilha está vazia.
+
+@author Gabriel H. Klok
+@type method
+@since 30/11/2020
+@version 1.0
+
+@return empty, logical, Retorna true caso a pilha esteja vazia.
+/*/
+method isEmpty() class Stack
+return (self:nSize = 0)
