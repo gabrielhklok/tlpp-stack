@@ -59,7 +59,7 @@ Metodo para empilhar um novo elemento na pilha.
 @param element, self:cType, Novo elemento que será empilhado na pilha.
 /*/
 method push(element) class Stack
-    if self:cType == "U" .or. valtype(element) == self:cType
+    if (self:cType == "U" .or. valtype(element) == self:cType) .and. element <> nil
         aadd(self:aStack, element)
         self:nSize++
     else 
